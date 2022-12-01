@@ -1,0 +1,102 @@
+.ui-base-card {
+  border-radius: $standard-border-radius;
+
+  &--bordered {
+    border: 1px solid $table-border-color;
+  }
+
+  .ui-base-card-header {
+    background-color: $white;
+    border-top-left-radius: $standard-border-radius;
+    border-top-right-radius: $standard-border-radius;
+
+    span, a {
+      font-family: $avenir-roman;
+      font-size: 18px;
+    }
+
+    &.with-border {
+      border-bottom: 1px solid $table-border-color;
+    }
+
+    &__main-content {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+
+    &__title {
+      flex: 1 1 auto;
+      font-weight: unset;
+      padding: 15px 16px 13px 15px;
+    }
+
+    &__children {
+      flex: 1 1 auto;
+      padding: 6px 16px 6px 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &__children-item {
+      position: relative;
+      flex: 0 0 auto;
+      margin-left: 12px;
+
+      &--full {
+        flex: 1 0 auto;
+      }
+
+      .ui-form-field {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .ui-base-card-body {
+    border-radius: $standard-border-radius;
+
+    &--with-padding {
+      padding: 13px 16px;
+    }
+
+    .ui-expandable {
+      &__container {
+        &--collapsed {
+          .ui-expandable__header {
+            border-bottom-left-radius: $standard-border-radius;
+            border-bottom-right-radius: $standard-border-radius;
+          }
+        }
+        &--expanded {
+          .ui-expandable__body {
+            border-bottom-left-radius: $standard-border-radius;
+            border-bottom-right-radius: $standard-border-radius;
+          }
+        }
+      }
+    }
+  }
+
+  .ui-gradient {
+    border-bottom-left-radius: $standard-border-radius;
+    border-bottom-right-radius: $standard-border-radius;
+  }
+
+  .ui-base-card-header,
+  .ui-base-card-body,
+  .ui-gradient {
+    &:only-child {
+      border-radius: $standard-border-radius;
+    }
+  }
+}
+
+
+
+
+
+

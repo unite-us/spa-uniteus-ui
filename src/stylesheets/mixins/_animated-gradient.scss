@@ -1,0 +1,16 @@
+@keyframes Gradient {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: -100% 50%;
+  }
+}
+
+@mixin animated-gradient {
+  background: $table-rule-color;
+  background: linear-gradient(90deg, $table-rule-color 10%, $loader-blue-color 50%, $table-rule-color 90%);
+  background-size: 200%;
+  animation: Gradient 2s linear infinite;
+  position: relative;
+}

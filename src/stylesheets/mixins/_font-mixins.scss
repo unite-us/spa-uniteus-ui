@@ -1,0 +1,159 @@
+// avenir-roman //
+@mixin avenir-roman {
+  font-family: $avenir-roman;
+  color: $display-color;
+}
+
+@mixin avenir-roman-display {
+  @include avenir-roman;
+  font-size: 34px;
+  letter-spacing: -0.5px;
+}
+
+@mixin avenir-roman-display-white {
+  @include avenir-roman;
+  color: $white;
+  text-shadow: 1px 2px 2px rgba(44, 64, 90, 0.4);
+}
+
+@mixin avenir-roman-xlg {
+  @include avenir-roman;
+  font-size: 20px;
+}
+
+@mixin avenir-roman-lg {
+  @include avenir-roman;
+  font-size: 18px;
+}
+
+@mixin avenir-roman-md {
+  @include avenir-roman;
+  font-size: 16px;
+}
+
+@mixin avenir-roman-sm {
+  @include avenir-roman;
+  font-size: 14px;
+}
+
+// Not exposed to public -- radioField specific
+@mixin avenir-roman-form-label-sm {
+  @include avenir-roman-sm;
+  text-transform: capitalize;
+  letter-spacing: 0;
+}
+
+// avenir-roman end //
+
+// avenir-heavy //
+@mixin avenir-heavy {
+  font-family: $avenir-heavy;
+  color: $display-color;
+}
+
+@mixin avenir-heavy-xs {
+  @include avenir-heavy;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+@mixin avenir-heavy-sm {
+  @include avenir-heavy;
+  font-size: 14px;
+}
+
+@mixin avenir-heavy-md {
+  @include avenir-heavy;
+  font-size: 16px;
+}
+
+@mixin avenir-heavy-lg {
+  @include avenir-heavy;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+@mixin avenir-heavy-active-xs {
+  @include avenir-heavy-xs;
+
+  color: $body-grey-color;
+  letter-spacing: 1px;
+}
+
+@mixin avenir-heavy-link-sm {
+  @include avenir-heavy;
+  color: $eggplant-color;
+}
+// avenir-heavy end//
+
+// avenir-medium //
+@mixin avenir-medium {
+  font-family: $avenir-medium;
+  color: $display-color;
+}
+
+@mixin avenir-medium-xs {
+  @include avenir-medium;
+  font-size: 12px;
+}
+
+@mixin avenir-medium-xxs {
+  @include avenir-medium;
+  font-size: 10px;
+}
+
+@mixin avenir-medium-active-xs {
+  @include avenir-medium-xs;
+  color: $active-color;
+  text-transform: uppercase;
+}
+
+@mixin avenir-medium-sm {
+  @include avenir-medium;
+  font-size: 14px;
+}
+
+@mixin avenir-medium-md {
+  @include avenir-medium;
+  font-size: 16px;
+}
+
+@mixin avenir-medium-lg {
+  @include avenir-medium;
+  font-size: 18px;
+}
+// avenir-medium end//
+
+// avenir-oblique //
+@mixin avenir-olique {
+  font-family: $avenir-oblique;
+  color: $display-color;
+}
+
+@mixin avenir-oblique-md {
+  @include avenir-olique;
+  font-size: 16px;
+}
+// avenir-oblique end//
+
+// custom mixins
+@mixin ui-link {
+  color: $united-blue-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $sky-blue-color;
+    text-decoration: none;
+  }
+
+  &:focus {
+    color: $deep-blue-color;
+    text-decoration: none;
+  }
+}
+
+@mixin avenir-medium-link-sm {
+  @include avenir-medium-sm;
+  @include ui-link;
+}
+// custom mixins end

@@ -1,0 +1,89 @@
+h1,h2,h3,h4, h5, h6, p {
+  margin: 0;
+}
+
+h1 {
+  @include avenir-roman-xlg;
+  font-weight: 300;
+}
+
+h2 {
+  @include avenir-roman-lg;
+  font-weight: 400;
+}
+
+h2.ui-h2-heavy {
+  @include avenir-heavy-lg;
+}
+
+h3 {
+  @include avenir-roman-md;
+  font-weight: 400;
+}
+
+h3.ui-h3-heavy {
+  @include avenir-heavy-md;
+}
+
+h3.ui-h3-oblique {
+  @include avenir-oblique-md;
+}
+
+h3.ui-h3-medium {
+  @include avenir-medium-md;
+}
+
+h4 {
+  @include avenir-heavy-sm;
+  font-weight: 400;
+}
+
+h5 {
+  @include avenir-heavy-active-xs;
+  font-weight: 400;
+}
+
+h6 {
+  @include avenir-medium-xxs;
+  font-weight: 400;
+}
+
+strong, .strong {
+  font-weight: bold;
+}
+
+p, span {
+  @include avenir-roman-sm;
+}
+
+a {
+  @include avenir-medium-link-sm;
+}
+
+b, strong, .strong {
+  @include avenir-heavy;
+}
+
+a.ui-a-heavy {
+  @include avenir-heavy-link-sm;
+}
+
+label {
+  @include avenir-heavy-active-xs;
+}
+
+label.ui-label-roman {
+  @include avenir-roman-form-label-sm;
+}
+
+label.ui-label-roman.ui-label-roman--lowercase {
+  text-transform: none;
+}
+
+.display {
+  @include avenir-roman-display;
+}
+
+.display.ui-display-white {
+  @include avenir-roman-display-white;
+}

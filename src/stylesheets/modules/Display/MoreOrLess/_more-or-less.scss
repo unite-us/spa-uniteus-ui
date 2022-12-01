@@ -1,0 +1,24 @@
+.more-or-less {
+  #more-or-less-toggle-btn {
+    padding: 5px 0 22px 15px;
+  }
+
+  &__button {
+    margin: 0px auto;
+
+    .ui-icon {
+      fill: $united-blue-color;
+      top: -2px;
+      position: relative;
+    }
+  }
+
+  &--show-more {
+    .more-or-less__button {
+      .ui-icon {
+        top: 0;
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+}

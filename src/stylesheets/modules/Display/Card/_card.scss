@@ -1,0 +1,82 @@
+.ui-card {
+  background-color: $white;
+
+  &--bordered {
+    border: 1px solid $table-rule-color;
+  }
+
+  .ui-card-header {
+    padding: 15px;
+
+    &__main-content {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__sub-content {
+      color: $silver-color;
+    }
+
+    &__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .icon-tooltip {
+        position: relative;
+        margin-left: 0.5em;
+
+        .tooltip {
+          visibility: hidden;
+          position: absolute;
+          top: 1.7em;
+          width: 16em;
+          padding: 0.8em;
+          border-radius: 4px;
+          border: 1px solid $table-rule-color;
+          background: white;
+          z-index: 100;
+        }
+
+        &:hover {
+          .tooltip {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+
+  .ui-card-text {
+    background-image: linear-gradient(to top, $white, #fafbfc);
+
+    &--hidden {
+      max-height: 0;
+      transition: max-height 0.15s ease-out;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    &--expanded {
+      transition: max-height 0.25s ease-in;
+    }
+
+    &__container {
+      padding: 15px;
+    }
+  }
+
+  .ui-card-actions {
+    padding: 0 15px 15px 15px;
+
+    &--hidden {
+      max-height: 0;
+      transition: max-height 0.15s ease-out;
+      overflow: hidden;
+    }
+
+    &--expanded {
+      transition: max-height 0.25s ease-in;
+    }
+  }
+}

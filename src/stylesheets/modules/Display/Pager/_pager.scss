@@ -1,0 +1,57 @@
+$border-radius: 4px;
+
+.ui-pager {
+  display: flex;
+  justify-content: flex-end;
+
+  &-count {
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  &__actions {
+    display: flex;
+    flex-flow: row nowrap;
+
+    &--left {
+      margin-left: 15px;
+    };
+
+    &--right {
+      margin-right: 15px;
+    };
+  };
+
+  &__btn {
+    background-color: white;
+    border: 1px solid $field-border-color;
+    height: 36px;
+    width: 45px;
+    outline: none;
+
+    &-next {
+      border-bottom-right-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      padding-left: 10px;
+    }
+
+    &-prev {
+      border-bottom-left-radius: $border-radius;
+      border-top-left-radius: $border-radius;
+      margin-right: -1px;
+      padding-right: 9px;
+    }
+
+    &:hover {
+      background-color: $cloud-blue-color;
+    }
+
+    &:active {
+      background-color: $field-border-color;
+    }
+
+    &--disabled {
+      background-color: $white !important;
+    }
+  }
+}

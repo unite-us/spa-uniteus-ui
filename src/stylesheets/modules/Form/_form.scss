@@ -1,0 +1,841 @@
+$choices-icon-cross: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjNDU3MUJBIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg0K);
+$choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg0K);
+@import "~@unite-us/choices.js/assets/styles/scss/choices";
+
+%ui-field {
+  background: $white;
+  border-radius: $standard-border-radius;
+  border: 1px solid $field-border-color;
+  box-sizing: border-box;
+  color: $display-color;
+  font-family: $avenir-roman;
+  font-size: $font-size-input;
+  letter-spacing: 0.2px;
+  padding: 0 8px;
+  width: 100%;
+}
+
+%ui-field-focus {
+  border-color: $united-blue-color;
+  outline: none;
+}
+
+%ui-field-error {
+  border-color: $rosso-color;
+}
+
+%ui-hidden-checkbox {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 5px;
+  left: -999%;
+  margin: 0;
+}
+
+%ui-toggle-label {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  color: $display-color;
+  text-transform: none;
+}
+
+// BASIC FORM FIELD
+.ui-form-field {
+  margin-bottom: 10px;
+  width: 100%;
+
+  &__label {
+    display: block;
+    margin-bottom: 4px;
+
+    &--required:after {
+      content: '*';
+      display: inline-block;
+      color: $rosso-color;
+      font-size: 14px;
+      margin-left: 4px;
+      transform: translateY(3px);
+      line-height: 1;
+    }
+  }
+
+  &--inline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &--inline &__label {
+    flex: 0 0 auto;
+    text-align: right;
+    margin-right: 10px;
+    padding-top: 14px;
+  }
+
+  &--inline &__label--text-field-inline {
+    padding-top: 5px;
+  }
+
+  &--inline > div {
+    flex: 1 1 auto;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+  }
+
+  &__hint {
+    margin-top: 2px;
+    color: $body-grey-color;
+    font-size: $font-size-helper;
+    font-style: italic;
+    line-height: 15px;
+  }
+
+  &--has-error &__label {
+    color: $rosso-color;
+  }
+
+  &__error {
+    margin-top: 2px;
+    color: $rosso-color;
+    font-size: $font-size-helper;
+    letter-spacing: 0.2px;
+    line-height: 15px;
+    height: 15px;
+    visibility: hidden;
+  }
+
+  &--has-error &__error {
+    visibility: visible;
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: $font-size-input;
+    letter-spacing: 0.2px;
+    color: $body-grey-color;
+  }
+  ::-moz-placeholder {
+    font-size: $font-size-input;
+    letter-spacing: 0.2px;
+    color: $body-grey-color;
+  }
+  :-ms-input-placeholder {
+    font-size: $font-size-input;
+    letter-spacing: 0.2px;
+    color: $body-grey-color;
+  }
+  :-moz-placeholder {
+    font-size: $font-size-input;
+    letter-spacing: 0.2px;
+    color: $body-grey-color;
+  }
+
+}
+
+// BASIC INPUT
+.ui-input-field {
+  input {
+    @extend %ui-field;
+    height: 36px;
+
+  }
+
+  &--has-error {
+    input {
+      @extend %ui-field-error;
+    }
+  }
+
+  input:focus {
+    @extend %ui-field-focus;
+  }
+}
+
+// TEXT
+.ui-text-field {
+  textarea {
+    @extend %ui-field;
+    min-height: 50px;
+    overflow: hidden;
+    padding: 10px;
+    resize: vertical !important;
+    word-wrap: break-word;
+  }
+
+  &--has-error {
+    textarea {
+      @extend %ui-field-error;
+    }
+  }
+
+  textarea:focus {
+    @extend %ui-field-focus;
+  }
+}
+
+// RADIO
+.ui-radio-field {
+  position: relative;
+
+  // Element Styles
+  input {
+    @extend %ui-hidden-checkbox;
+  }
+
+  .ui-form-field__label {
+    @include avenir-heavy-active-xs;
+
+    &--left {
+      padding-right: 30px;
+      padding-left: 0;
+      display: inline-block;
+    }
+
+    &--roman-label {
+      @include avenir-roman-form-label-sm;
+      text-transform: none;
+    }
+  }
+
+
+  &__label {
+    margin-bottom: 10px;
+  }
+
+  &--has-error .ui-form-field__label {
+    color: $rosso-color;
+  }
+
+  &--inline {
+    .ui-radio-field__item {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+
+  /* HTML5 Boilerplate accessible hidden styles */
+  [type="radio"] {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px; margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  /* One radio button per line */
+  label {
+    @include avenir-roman-form-label-sm;
+    display: block;
+    cursor: pointer;
+    line-height: 2.0;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  [type="radio"] + span {
+    display: block;
+  }
+
+  /* the basic, unchecked style */
+  [type="radio"] + span:before {
+    content: '';
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    vertical-align: -0.05em;
+    border-radius: 0.5em;
+    border: 0.1em solid #fff;
+    box-shadow: 0 0 0 0.10em $united-blue-color;
+    margin-right: 0.75em;
+    margin-bottom: 1px;
+    transition: 0.5s ease all;
+  }
+
+  /* the checked style using the :checked pseudo class */
+  [type="radio"]:checked + span:before {
+    background: $united-blue-color;
+    box-shadow: 0 0 0 0.15em $united-blue-color;
+  }
+
+  /* never forget focus styling */
+  [type="radio"]:focus + span:after {
+    font-size: 1.5em;
+    line-height: 1;
+    vertical-align: -0.120em;
+  }
+}
+
+// SELECT
+.ui-select-field {
+  .choices {
+    font-size: $font-size-input;
+    margin-bottom: 0;
+    position: relative;
+
+    &[data-type*="select-one"] .choices__inner {
+      padding-bottom: 0;
+
+      .choices__button:focus {
+        box-shadow: 0 0 0 1px $united-blue-color;
+      }
+    }
+
+    &__inner {
+      background: $white;
+      border-radius: $standard-border-radius;
+      border: 1px solid $field-border-color;
+      color: $display-color;
+      padding: 4px 8px;
+      font-size: $font-size-input;
+      min-height: 36px;
+      box-sizing: border-box;
+    }
+
+    &__input {
+      background: none;
+      font-size: $font-size-input;
+      padding: 5px 0 5px 2px;
+      margin: 0;
+    }
+
+    &__list {
+      box-sizing: border-box;
+    }
+
+    &__list--single {
+      padding-right: 34px;
+    }
+
+    &__list--multiple {
+      display: inline-block;
+      padding-right: 10px;
+      .choices__item {
+        border: 1px solid $united-blue-color;
+        color: $united-blue-color;
+        background-color: $cloud-blue-color;
+
+        .choices__button {
+          border-left: none;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    &.is-focused .choices__inner {
+      border-color: $united-blue-color;
+    }
+
+    &.is-open .choices__inner {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &.is-disabled .choices__inner {
+      background-color: $white;
+      cursor: default;
+    }
+
+    &__list--dropdown {
+      background-color: $section-color;
+      border-width: 1px ;
+      border-style: solid;
+      border-color: $united-blue-color;
+      border-top-color: $field-border-color;
+      border-bottom-left-radius: $standard-border-radius;
+      border-bottom-right-radius: $standard-border-radius;
+      box-sizing: border-box;
+      overflow: hidden;
+      z-index: z('dropdown');
+
+      .choices__placeholder {
+        display: none;
+      }
+
+      .choices__item {
+        min-height: 38px;
+        font-size: $font-size-input;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        
+        &--selectable {
+          padding-right: 15px;
+
+          &.is-highlighted {
+            background-color: $cloud-blue-color;
+            border-left: 2px solid $united-blue-color;
+            padding-left: 13px;
+          }
+        }
+      }
+
+      .choices__group ~ .choices__item {
+        color: $united-blue-color;
+      }
+
+      .choices__heading {
+        padding: 10px 15px;
+        color: $display-color;
+        font-weight: 800;
+        font-size: $font-size-label;
+        border-top: 1.5px solid $cloud-blue-color;
+        border-bottom: none;
+        text-transform: none;
+      }
+    }
+  }
+
+  [data-type*="select-one"]::after {
+    content: "";
+    height: 0;
+    width: 0;
+    border-color: $active-color transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    position: absolute;
+    right: 11.5px;
+    top: 50%;
+    margin-top: -2.5px;
+    pointer-events: none;
+    }
+
+  .multiple-selector {
+    background-color: transparent;
+    border: none;
+    height: 14px;
+    padding: 5px;
+    padding-top: 10px;
+    position: absolute;
+    right: 11.5px;
+    top: 13px;
+    width: 11px;
+
+    &:focus {
+      border-color: $united-blue-color;
+    }
+  }
+
+  .multiple-selector:after {
+    content: "";
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-color: $active-color transparent transparent transparent;
+    border-width: 5px;
+    position: absolute;
+    right: 0.5px;
+    top: 50%;
+    margin-top: -2.5px;
+    pointer-events: none;
+  }
+
+  .multiple-selector.open:after {
+    border-color: transparent transparent black transparent;
+    margin-top: -7.5px;
+  }
+
+  &--has-error {
+    .choices {
+      &__inner {
+        border-color: $rosso-color;
+      }
+    }
+  }
+}
+
+// CHECKBOX
+.ui-checkbox-field {
+  position: relative;
+
+  label {
+    @include avenir-roman-form-label-sm;
+  }
+
+  input {
+    @extend %ui-hidden-checkbox;
+
+    & + .ui-form-field__label {
+      @extend %ui-toggle-label;
+      padding-left: 28px;
+      height: 18px;
+      padding-top: 4px;
+      padding-right: 10px;
+      line-height: 1em;
+
+
+      &:before {
+        box-sizing: border-box;
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 18px;
+        width: 18px;
+        border-radius: $standard-border-radius;
+        background-color: $white;
+        border: 1px solid $active-color;
+        transition: 0.3s ease-in-out;
+      }
+
+      &:after {
+        box-sizing: border-box;
+        content: "";
+        display: block;
+        position: absolute;
+        height: 6px;
+        width: 10px;
+        border-left: 2px solid $white;
+        border-bottom: 2px solid $white;
+        top: 4px;
+        left: 4px;
+        transform: scale(0) rotateZ(-45deg);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      &--left {
+        padding-right: 28px;
+        padding-left: 0;
+        line-height: 0.7em;
+
+        &:before {
+          left: auto;
+          right: 0;
+        }
+
+        &:after {
+          left: auto;
+          right: 4px
+        }
+      }
+    }
+
+    &:checked + .ui-form-field__label {
+      &:before {
+        background-color: $united-blue-color;
+      }
+
+      &:after {
+        transform: scale(1) rotateZ(-45deg);
+      }
+    }
+
+    &:focus + .ui-form-field__label {
+      &:before {
+        border-color: $united-blue-color;
+        outline: 0;
+        box-shadow: 0 0 8px 1px rgba(102, 175, 233, 0.6);
+
+      }
+    }
+
+  }
+}
+
+// TOGGLE
+.ui-toggle-field {
+  position: relative;
+
+  label {
+    @include avenir-roman-form-label-sm;
+  }
+
+  input {
+    @extend %ui-hidden-checkbox;
+
+    & + .ui-form-field__label {
+      @extend %ui-toggle-label;
+      padding-left: 65px;
+      height: 28px;
+      padding-top: 9px;
+      padding-right: 10px;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 28px;
+        width: 52px;
+        border-radius: 6px;
+        background-color: $white;
+        border: 1px solid $field-border-color;
+        transition: 0.3s ease-in-out;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        height: 22px;
+        width: 22px;
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        border: 1px solid $field-border-color;
+        box-shadow: 0 3px 2px 0 rgba(9, 11, 15, 0.06);
+        box-sizing: border-box;
+        border-radius: $standard-border-radius;
+        background-color: $white;
+        transition: 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url(data:image/svg+xml;base64,PHN2Zw0KICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIg0KICAgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyINCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyINCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQogICB3aWR0aD0iNS45OTk5OTk1Ig0KICAgaGVpZ2h0PSI3Ljk5OTk5OTUiDQogICB2aWV3Qm94PSIwIDAgMS41ODc0OTk5IDIuMTE2NjY2NSINCiAgIHZlcnNpb249IjEuMSINCj4NCiAgPGc+DQogICAgPHJlY3QNCiAgICAgICBzdHlsZT0iZmlsbDojZjFmMmYzOyINCiAgICAgICB3aWR0aD0iMC41MjkxNjY2NCINCiAgICAgICBoZWlnaHQ9IjIuMTE2NjY2NiINCiAgICAgICB4PSIwIg0KICAgICAgIHk9IjAiIC8+DQogICAgPHJlY3QNCiAgICAgICBzdHlsZT0iZmlsbDojZjFmMmYzOyINCiAgICAgICB3aWR0aD0iMC41MjkxNjY2NCINCiAgICAgICBoZWlnaHQ9IjIuMTE2NjY2NiINCiAgICAgICB4PSIxLjA1ODMzMzMiDQogICAgICAgeT0iMCIgLz4NCiAgPC9nPg0KPC9zdmc+);
+      }
+
+      &--left {
+        padding-right: 65px;
+        padding-left: 0;
+
+        &:before {
+          left: auto;
+          right: 0;
+        }
+
+        &:after {
+          left: auto;
+          right: 28px
+        }
+      }
+    }
+
+    &:checked + .ui-form-field__label {
+      &:before {
+        background-color: $grass-color;
+      }
+
+      &:after {
+        transform: translateX(24px);
+      }
+    }
+
+    &:focus + .ui-form-field__label {
+      &:before {
+        border-color: $united-blue-color;
+      }
+    }
+  }
+}
+
+// DATE
+.ui-date-field {
+  width: 200px;
+
+  input {
+    @extend %ui-field;
+    height: 36px;
+    padding-right: 35px;
+  }
+
+  &--has-error {
+    input {
+      @extend %ui-field-error;
+    }
+  }
+
+  &--droptdown-open {
+    input {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  input:focus {
+    @extend %ui-field-focus;
+  }
+
+  &.ui-form-field--inline {
+    width: calc(25% + 200px);
+
+    .ui-form-field__label {
+      flex: 0 0 calc(100% - 200px);
+    }
+    & > div {
+      flex: 0 0 200px;
+    }
+  }
+
+  & > div {
+    position: relative;
+  }
+
+  &__calendar-icon {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    svg {
+      fill: $active-color;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    user-select: none;
+    padding-bottom: 5px;
+
+    & > a {
+      flex: 0 0 25px;
+      text-align: center;
+
+      svg {
+        fill: $active-color;
+        height: 15px;
+        width: 15px;
+      }
+    }
+
+    & > div {
+      flex: 1 1 auto;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    input {
+      border: none;
+      font-weight: 900;
+      font-size: 13px;
+      width: 40px;
+      display: inline-block;
+      padding: 0;
+      height: auto;
+      border-radius: 0;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    z-index: z('dropdown');
+    top: 35px;
+    left: 0;
+    padding: 10px;
+    border: 1px solid $field-border-color;
+    background: $white;
+    display: none;
+    border-bottom-right-radius: $standard-border-radius;
+    border-bottom-left-radius: $standard-border-radius;
+
+    &--open {
+      display: block;
+    }
+  }
+}
+
+// DURATION
+.ui-duration-field {
+  width: 225px;
+  &__fake-input {
+    @extend %ui-field;
+    height: 36px;
+    padding-right: 35px;
+    &:focus {
+      outline: none;
+      border-color: $united-blue-color;
+    }
+  }
+  & > div {
+    position: relative;
+  }
+  &__calendar-icon {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    svg {
+      fill: $active-color;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    input {
+      @extend %ui-field;
+      height: 36px;
+      flex: 0 0 190px;
+      margin-bottom: 10px;
+      &:focus {
+        outline: none;
+        border-color: $united-blue-color;
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    user-select: none;
+    padding-bottom: 5px;
+
+    & > a {
+      flex: 0 0 25px;
+      text-align: center;
+
+      svg {
+        fill: $active-color;
+        height: 15px;
+        width: 15px;
+      }
+    }
+
+    & > div {
+      flex: 1 1 auto;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    input {
+      border: none;
+      font-weight: 900;
+      font-size: 13px;
+      width: 40px;
+      display: inline-block;
+      padding: 0;
+      height: auto;
+      border-radius: 0;
+    }
+  }
+
+  &__calendars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .ui-calendar {
+      flex: 0 0 190px;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    z-index: z('dropdown');
+    top: 35px;
+    left: 0;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid $field-border-color;
+    background: $white;
+    display: none;
+    border-bottom-right-radius: $standard-border-radius;
+    border-bottom-left-radius: $standard-border-radius;
+
+    &--open {
+      display: block;
+    }
+  }
+}
+
+.ui-datetime-field {
+  &__controls {
+    display: flex;
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,41 @@
+.ui-selection {
+  background-color: $cloud-blue-color;
+  border-radius: 20px;
+  border: 1px solid $united-blue-color;
+  display: inline-block;
+  margin-bottom: 6px;
+  margin-right: 10px;
+  padding: 4px 4px 3px 8px;
+  user-select: none;
+
+  .ui-selection__button-container {
+    align-items: center;
+    display: flex;
+  }
+
+  span {
+    color: $united-blue-color;
+    flex: 1 1 auto;
+  }
+
+  a {
+    flex: 0 0 18px;
+  }
+
+  &__button {
+    background-color: transparent;
+    cursor: pointer;
+    fill: lighten($color: $united-blue-color, $amount: 15%);
+    line-height: 1;
+    margin: 0 3px 0 7px;
+    vertical-align: unset !important;
+
+    &:hover {
+      fill: $united-blue-color;
+    }
+  }
+
+  a:focus {
+    outline:0;
+  }
+}

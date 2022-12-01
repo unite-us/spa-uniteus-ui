@@ -1,0 +1,76 @@
+.ui-expandable {
+  $caretBorder: 2px solid $active-color;
+  $speed: 0.2s;
+  $caretSize: 6px;
+  $degrees: 45deg;
+  $expandablePadding: 13px 18px 13px 16px;
+
+  &__header {
+    background-color: $section-color;
+    padding: $expandablePadding;
+
+    &--primary {
+      span, a {
+        @include avenir-heavy-active-xs;
+      }
+    }
+
+    &--secondary {
+      border-bottom: 2px solid $section-color;
+      background-color: white;
+    }
+  }
+
+  &__header-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .ui-expandable-text {
+      flex: 1 1 auto;
+      margin-right: 10px;
+    }
+
+    .ui-expandable-caret {
+      flex: 0 0 auto;
+    }
+  }
+
+  &-caret {
+    border-bottom: $caretBorder;
+    border-right: $caretBorder;
+    display: inline-block;
+    height: $caretSize;
+    width: $caretSize;
+
+    &.open {
+      transform: rotate($degrees);
+      transition: $speed;
+    }
+
+    &.closed {
+      transform: rotate(-$degrees);
+      transition: $speed;
+    }
+  }
+
+  .ui-expandable__body {
+    padding: $expandablePadding;
+
+    &--expanded {
+      max-height: none;
+      display: block;
+      background-color: $white;
+    }
+
+    &--collapsed {
+      max-height: 0;
+      display: none;
+    }
+
+    &--secondary {
+      border-bottom: 2px solid $section-color;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.ui-app-bar-side-nav  {
+  display: flex;
+  transition: transform 0.5s, width 0.5s;
+
+  &--opened {
+    width: 100%;
+  }
+
+  &__side-content {
+    flex: 0 0 250px;
+  }
+
+  &__main-content {
+    flex: 1 1 auto;
+  }
+}
+
+.ui-app-bar {
+  align-items: center;
+  background: $display-color;
+  color: $white;
+  display: flex;
+  justify-content: space-between;;
+  padding: 10px;
+  position: relative;
+  z-index: z('appbar');
+  width: 100%;
+
+  &__left-container {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+  }
+
+  &__left {
+    flex: 1 1 auto;
+  }
+
+  &__right {
+    flex: 0 1 auto;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    cursor: pointer;
+    display: inline;
+    margin-right: 30px;
+  }
+}

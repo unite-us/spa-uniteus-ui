@@ -1,0 +1,42 @@
+.colors {
+  &__grid {
+    margin-bottom: 10px;
+  }
+
+  &__section {
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 2px #dfdfdf;
+  }
+
+  &__palette-container {
+    border-radius: 2px 2px 0 0;
+    min-height: 100px;
+  }
+
+  &__details {
+    border-radius: 0 0 3px 3px;
+    text-align: center;
+  }
+
+  &__variable,
+  &__type {
+    font-size: .7em;
+    display: block;
+  }
+}
+
+.color-background {
+  @each $key, $color in $color-map {
+    &--#{$key} {
+      background-color: $color;
+    }
+  }
+}
+
+.color {
+  @each $key, $color in $color-map {
+    &--#{$key} {
+      color: $color;
+    }
+  }
+}

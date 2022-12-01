@@ -1,0 +1,22 @@
+$z-indexed-items: (
+  'content'
+  'button'
+  'dropdown'
+  'drawer'
+  'appbar'
+  'popover'
+  'modal'
+  'notification'
+);
+
+$z-index-map: ();
+
+@each $item in $z-indexed-items {
+  $i: 100 + index($z-indexed-items, $item);
+  $z-index-map: map-merge($z-index-map, ($item: $i));
+}
+
+
+@function z($key) {
+  @return map-get($z-index-map, $key)
+}

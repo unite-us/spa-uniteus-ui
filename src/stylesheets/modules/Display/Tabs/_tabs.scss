@@ -1,0 +1,37 @@
+.ui-tabs {
+  position: relative;
+
+  .ui-tab-container {
+    display: inline-block;
+  }
+
+  .ui-tab {
+    cursor: pointer;
+    margin-right: 5px;
+    padding: 12px 60px;
+
+    &:focus {
+      outline: -webkit-focus-ring-color auto 3px;
+    }
+
+    &:hover {
+      border-top: 1px solid $cloud-blue-color;
+      background-color: $cloud-blue-color;
+    }
+
+    &--active {
+      background: $cloud-blue-color;
+      border-top: 1px solid $display-color;
+    }
+
+    &__label {
+      color: $display-color;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.rsg--preview-72 {
+  padding: 40px;
+}

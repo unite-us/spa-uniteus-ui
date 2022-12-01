@@ -1,0 +1,139 @@
+// Font Family (replace with new styles)
+$avenir-roman: 'Avenir Roman';
+$avenir-oblique: "Avenir Oblique";
+$avenir-medium: "Avenir Medium";
+$avenir-heavy: "Avenir Heavy";
+$base-font-size: 14px;
+
+// Color Variables
+$active-color: #67859E;
+$avocado-color: #078b00;
+$baby-boy-blue-color: #8DABC4;
+$black: #000000;
+$body-grey-color: #506784;
+$canary-color: #F4D316;
+$cloud-blue-color: #ECF5FD;
+$deep-blue-color: #2D5495;
+$action-blue: #2874AF;
+$display-color: #2C405A;
+$eggplant-color: #712F79;
+$field-border-color: #D8E5EE;
+$grass-color: #4ECE3D;
+$lil-grey-color: #F9F9F9;
+$loader-blue-color: #BEDAF3;
+$rosso-color: #D0021B;
+$silver-color: #CACACA;
+$section-color: #FAFBFC;
+$sky-blue-color: #628ED7;
+$tangie-color: #FF9900;
+$table-border-base-color: #B7D2E5;
+$table-rule-color: #E5EEF5;
+$united-blue-color: #4571BA;
+$white: #FFFFFF;
+
+// Calculated colors
+$disabled-color: transparentize($display-color, .6);
+// Add opacity for table border
+$table-border-color: transparentize($table-border-base-color, .2);
+
+
+// Font Size
+$h1: 20px;
+$h2: 18px;
+$h3: 16px;
+$h4: 14px;
+$h5: 12px;
+$h6: 10px;
+$body: 14px;
+$font-size-label: 14px;
+$font-size-input: 14px;
+$font-size-helper: 12px;
+
+// Borders
+$standard-border-radius: 4px;
+
+// Font Weight
+$font-normal: 400;
+$font-bold: 700;
+$font-super-bold: 900;
+
+$color-map: (
+  display-color: $display-color,
+  body-grey-color: $body-grey-color,
+  active-color: $active-color,
+  field-border-color: $field-border-color,
+  cloud-blue-color: $cloud-blue-color,
+  table-rule-color: $table-rule-color,
+  table-border-color: $table-border-color,
+  section-color: $section-color,
+  united-blue-color: $united-blue-color,
+  sky-blue-color: $sky-blue-color,
+  deep-blue-color: $deep-blue-color,
+  grass-color: $grass-color,
+  eggplant-color: $eggplant-color,
+  canary-color: $canary-color,
+  tangie-color: $tangie-color,
+  rosso-color: $rosso-color,
+  silver-color: $silver-color,
+  lil-grey-color: $lil-grey-color,
+  avocado-color: $avocado-color,
+) !default;
+
+// Grid
+$enable-grid-classes: true !default;
+$enable-flex: true !default;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 544px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+  sm: 576px,
+  md: 720px,
+  lg: 940px,
+  xl: 1140px
+) !default;
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+$grid-columns:      12 !default;
+$grid-gutter-width: 30px !default;
+
+
+// Popover Variables
+// Copied from Bootstrap
+$zindex-popover: 1060 !default;
+$popover-max-width: 800px !default;
+$popover-bg: $white !default;
+$font-weight-normal: 400 !default;
+$line-height-base: 1.5 !default;
+$border-width: 1px !default;
+$popover-border-width: $border-width !default;
+$border-radius-lg: .3rem !default;
+$enable-rounded: true !default;
+$enable-shadows: false !default;
+$popover-box-shadow: 0 .25rem .5rem rgba($black, .2) !default;
+$popover-arrow-width: 1rem !default;
+$popover-arrow-height: .5rem !default;
+$popover-border-color: rgba($black, .2) !default;
+$popover-arrow-color: $popover-bg !default;
+$popover-header-bg: darken($popover-bg, 3%) !default;
+$popover-header-padding-y: .5rem !default;
+$popover-header-padding-x: .75rem !default;
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$headings-color: inherit !default;
+$popover-header-color: $headings-color !default;
+$popover-body-padding-y: $popover-header-padding-y !default;
+$popover-body-padding-x: $popover-header-padding-x !default;
+$gray-900: #212529 !default;
+$body-color: $gray-900 !default;
+$popover-body-color: $body-color !default;

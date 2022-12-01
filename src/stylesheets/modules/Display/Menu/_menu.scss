@@ -1,0 +1,126 @@
+.ui-menu {
+  display: inline-block;
+  position: relative;
+  color: $display-color;
+
+  &__popover {
+    .Popover-body {
+      padding: 10px 0;
+    }
+  }
+
+  &__list {
+    background: $white;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, $table-border-color 0px 1px 4px;
+    white-space: nowrap;
+    transition: transform 0.5s;
+    opacity: 1;
+    z-index: z('popover');
+    visibility: visible;
+
+    &--hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &--target-top-bottom {
+      transform: translateY(0);
+    }
+
+    &--target-top-bottom-hidden {
+      transform: translateY(-5%);
+    }
+
+    &--target-bottom-top {
+      transform: translateY(0);
+    }
+
+    &--target-bottom-top-hidden {
+      transform: translateY(5%);
+    }
+
+    &--target-right-left {
+      transform: translateX(0);
+    }
+
+    &--target-right-left-hidden {
+      transform: translateX(5%);
+    }
+
+    &--target-left-right {
+      transform: translateX(0);
+    }
+
+    &--target-left-right-hidden {
+      transform: translateX(-5%);
+    }
+
+    &--right-start {
+      @include position(absolute, 0 null null 100%);
+    }
+
+    &--right-end {
+      @include position(absolute, null null 0 100%);
+    }
+
+    &--left-start {
+      @include position(absolute, 0 100% null null);
+    }
+
+    &--left-end {
+      @include position(absolute, null 100% 0 null);
+    }
+
+    &--bottom-start {
+      @include position(absolute, 100% null null 0);
+    }
+
+    &--bottom-end {
+      @include position(absolute, 100% 100% null null);
+    }
+
+    &--top-start {
+      @include position(absolute, null null 100% 0);
+    }
+
+    &--top-end {
+      @include position(absolute, null 100% 100% null);
+    }
+
+    &--notification {
+      @include position(absolute, 124% 24% null null);
+    }
+  }
+
+  &__anchor {
+    cursor: pointer;
+  }
+
+  .ui-menu-item {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    padding: 16px;
+
+    &--hovered {
+      background-color: $cloud-blue-color;
+    }
+
+    &--subitems {
+      padding: 0;
+    }
+
+    &--disabled {
+      cursor: default;
+    }
+  }
+
+  .ui-sub-menu-items {
+    width: 100%;
+
+    &--hovered {
+      background-color: $cloud-blue-color;
+    }
+  }
+}

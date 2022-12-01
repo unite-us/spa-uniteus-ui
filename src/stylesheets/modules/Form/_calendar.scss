@@ -1,0 +1,70 @@
+.ui-calendar {
+  table {
+    border-collapse: separate;
+    border-spacing: 2px;
+    color: $display-color;
+    background: $white;
+
+    th, td {
+      height: 22px;
+      width: 22px;
+      text-align: center;
+      user-select: none;
+      font-weight: normal;
+    }
+  }
+
+  &__day {
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+    vertical-align: middle;
+
+    &:hover {
+      background: $field-border-color;
+    }
+
+    & > div {
+      height: 100%;
+      width: 100%;
+      line-height: 22px;
+      border-radius: 4px;
+
+      &:focus {
+        background: $field-border-color;
+        outline: none;
+      }
+    }
+
+    &--out-of-month {
+      color: $body-grey-color;
+    }
+
+    &--selected {
+      background: $united-blue-color;
+      color: $white;
+      &:hover {
+        background: $united-blue-color;
+      }
+      & > div:focus {
+        background: transparent;
+      }
+    }
+
+    &--in-range {
+      background: $cloud-blue-color;
+    }
+
+    &--disabled {
+      cursor: default;
+      color: $silver-color;
+      &:hover {
+        background: none;
+      }
+      & > div:focus {
+        background: transparent;
+      }
+    }
+
+  }
+}

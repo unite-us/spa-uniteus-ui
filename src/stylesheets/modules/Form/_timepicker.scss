@@ -1,0 +1,34 @@
+.time-picker-drop-downs {
+    padding-left: 15px;
+    white-space: nowrap;
+    width: 4em;
+}
+
+.time-picker-field {
+    white-space: nowrap;
+    width: 4em;
+}
+
+.time-selectors {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    min-width: 200px;
+}
+
+.time-colon {
+    font-size: 25px;
+    margin-right: -5px;
+    padding-left: 10px;
+    color: #293D53;
+    padding-bottom: 10px;
+}
+
+.date-time-error {
+    padding-left: 14px;
+    margin-top: -25px;
+}
+
+.date-field-row {
+    margin-left: 1em;
+}

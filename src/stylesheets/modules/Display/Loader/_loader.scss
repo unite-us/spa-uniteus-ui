@@ -1,0 +1,45 @@
+.bar-loader {
+  @include size(100%, 15px);
+	@include animated-gradient;
+
+  &--tall {
+    height: 35px;
+  }
+
+  &--quarter {
+    width: 25%;
+  }
+
+  &--half {
+    width: 50%;
+  }
+
+  &--semi-full {
+    width: 75%;
+  }
+}
+
+.icon-loader {
+  @include size(80px, 80px);
+	@include animated-gradient;
+
+  &--rounded {
+    border-radius: 12px;
+  }
+
+  &--small {
+    @include size(40px, 40px);
+  }
+
+  &--small-rounded {
+    border-radius: 4px;
+  }
+
+  &--large {
+    @include size(120px, 120px);
+  }
+
+  &--large-rounded {
+    border-radius: 16px;
+  }
+}
